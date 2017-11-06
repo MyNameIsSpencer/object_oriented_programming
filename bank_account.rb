@@ -1,22 +1,31 @@
 class BankAccount
-  puts depositer = gets.chomp.to_i
-  puts withdrawer = gets.chomp.to_i
-  def balance
-     @balance = 0
+
+  def initialize
+    @balance = 0
+    @interest_rate = 0.2
+  end
+
+  def balancer
+    @balance
   end
 
   def interest_rate
     @interest_rate
   end
-  def interest_rate=(rate)
-    @interest_rate = rate
-  end
 
-  def deposit
+  def deposit(depositer)
     # inputer = 0
     # puts "How much would you like to deposit?"
     # inputer = gets.chomp.to_i
      @balance += depositer
+  end
+
+  def withdraw(withdrawer)
+    @balance -= withdrawer
+  end
+
+  def gain_interest
+    @balance += @balance * @interest_rate
   end
 
 
@@ -24,10 +33,22 @@ end
 
 myaccount = BankAccount.new
 
-myaccount.interest_rate = 0.005
-
-puts myaccount.balance
+puts myaccount.balancer
 puts myaccount.interest_rate
-myaccount.deposit
-puts myaccount.deposit
-puts myaccount.balance
+
+
+puts "How much would you like to deposit?"
+munch = gets.chomp.to_i
+myaccount.deposit(munch)
+puts "Your current balance is $#{myaccount.balancer}."
+
+puts "How much would you like to withdraw?"
+gold_digger = gets.chomp.to_i
+myaccount.withdraw(gold_digger)
+puts "Your current balance is $#{myaccount.balancer}."
+
+
+
+myaccount.gain_interest
+
+puts "Your current balance is $#{myaccount.balancer}."
