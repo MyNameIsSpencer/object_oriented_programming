@@ -1,9 +1,8 @@
 class BankAccount
+  puts depositer = gets.chomp.to_i
+  puts withdrawer = gets.chomp.to_i
   def balance
-    @balance
-  end
-  def balance=(number)
-     @balance = number
+     @balance = 0
   end
 
   def interest_rate
@@ -14,17 +13,21 @@ class BankAccount
   end
 
   def deposit
-    @deposit
+    # inputer = 0
+    # puts "How much would you like to deposit?"
+    # inputer = gets.chomp.to_i
+     @balance += depositer
   end
-  def deposit
-    @deposit = gets.chomp
-  end
+
+
 end
 
 myaccount = BankAccount.new
-myaccount.balance = 50
+
 myaccount.interest_rate = 0.005
-myaccount.deposit = 5000
+
 puts myaccount.balance
 puts myaccount.interest_rate
+myaccount.deposit
 puts myaccount.deposit
+puts myaccount.balance
